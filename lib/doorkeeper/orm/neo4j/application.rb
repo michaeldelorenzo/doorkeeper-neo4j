@@ -43,7 +43,7 @@ module Doorkeeper
     end
 
     def generate_secret
-      self.secret = UniqueToken.generate if secret.blank?
+      self.secret = Doorkeeper::OAuth::Helpers::UniqueToken.generate if secret.blank?
     end
   end
 end

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = 'Doorkeeper Neo4j ORM.'
   spec.description   = 'Doorkeeper Neo4j ORM.'
-  # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/michaeldelorenzo/doorkeeper-neo4j"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
@@ -29,7 +29,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'doorkeeper', '>= 3.0.0'
   spec.add_dependency 'neo4j', '>= 6.1.4'
-  spec.add_dependency 'safe_attributes'
 
   spec.add_development_dependency "bundler", "~> 1.11"
   spec.add_development_dependency "rake", "~> 10.0"

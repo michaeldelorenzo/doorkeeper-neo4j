@@ -5,11 +5,11 @@ module Doorkeeper
         extend ActiveSupport::Concern
 
         included do
-          property :_scopes, type: String
+          property :app_scopes, type: String
         end
 
         def scopes=(value)
-          self._scopes = value
+          self.app_scopes = value
         end
       end
     end

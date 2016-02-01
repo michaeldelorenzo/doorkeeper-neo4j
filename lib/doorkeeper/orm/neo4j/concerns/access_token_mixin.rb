@@ -33,7 +33,7 @@ module Doorkeeper
       private
 
       def generate_token
-        self.token = UniqueToken.generate
+        self.token = ::Doorkeeper::OAuth::Helpers::UniqueToken.generate
       end
     end
   end

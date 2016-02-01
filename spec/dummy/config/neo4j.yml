@@ -1,0 +1,10 @@
+defaults: &defaults
+  host: localhost
+  port: 7475
+  credentials:  neo4j:password
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults

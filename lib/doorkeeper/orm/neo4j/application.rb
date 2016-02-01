@@ -1,7 +1,9 @@
+require 'neo4j'
+
 module Doorkeeper
   class Application
-    include Neo4j::ActiveNode
-    include Neo4j::Timestamps
+    include ::Neo4j::ActiveNode
+    include ::Neo4j::Timestamps
 
     # TODO: What to do with this?
     include Models::Neo4j::Scopes

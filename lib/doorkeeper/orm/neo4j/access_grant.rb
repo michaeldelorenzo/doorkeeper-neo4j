@@ -1,5 +1,5 @@
-require 'doorkeeper/orm/mongoid5/concerns/scopes'
-require 'doorkeeper-mongodb/compatible'
+require 'doorkeeper/orm/neo4j/concerns/scopes'
+require 'doorkeeper-neo4j/compatible'
 
 module Doorkeeper
   class AccessGrant

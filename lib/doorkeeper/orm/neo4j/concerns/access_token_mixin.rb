@@ -1,6 +1,6 @@
 module Doorkeeper
   module Neo4j
-    module AccessGrantMixin
+    module AccessTokenMixin
       extend ActiveSupport::Concern
 
       include OAuth::Helpers
@@ -12,7 +12,7 @@ module Doorkeeper
 
       included do
 
-        has_one :in, :application, rel_class: 'Doorkeeper::Relationships::AccessGrantRel'
+        has_one :in, :application, rel_class: 'Doorkeeper::Relationships::AccessTokenRel'
 
         if respond_to?(:attr_accessible)
           attr_accessible :resource_owner_id, :application_id, :expires_in, :redirect_uri, :scopes

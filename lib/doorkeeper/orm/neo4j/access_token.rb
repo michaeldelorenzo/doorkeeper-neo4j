@@ -1,5 +1,6 @@
 require 'neo4j'
 require 'doorkeeper/orm/neo4j/concerns/scopes'
+require 'doorkeeper/orm/neo4j/concerns/access_token_mixin'
 require_relative '../../../../lib/doorkeeper/neo4j/compatible'
 
 module Doorkeeper
@@ -9,7 +10,7 @@ module Doorkeeper
     include ::Neo4j::ActiveNode
     include ::Neo4j::Timestamps
 
-    include AccessTokenMixin
+    include Doorkeeper::Neo4j::AccessTokenMixin
     include Models::Neo4j::Scopes
 
     self.mapped_label_name = 'OAuthAccessToken'

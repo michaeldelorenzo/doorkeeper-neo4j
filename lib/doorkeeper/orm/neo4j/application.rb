@@ -19,8 +19,7 @@ module Doorkeeper
     has_many :out, :access_tokens, rel_class: 'Doorkeeper::Relationships::AccessTokenRel'
     has_many :out, :access_grants, rel_class: 'Doorkeeper::Relationships::AccessGrantRel'
 
-    validates :name, :secret, :uid, presence: true
-    validates :uid, uniqueness: true
+    validates :name, :secret, presence: true
     validates :redirect_uri, redirect_uri: true
 
     scope :by_uid_and_secret, ->(uid, secret){ where(id: uid, secret: secret).first }

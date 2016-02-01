@@ -1,7 +1,9 @@
+require 'neo4j'
+
 module Doorkeeper
   module Relationships
     class AccessTokenRel
-      include Neo4j::ActiveRel
+      include ::Neo4j::ActiveRel
 
       creates_unique
 

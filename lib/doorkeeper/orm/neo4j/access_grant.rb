@@ -1,5 +1,5 @@
 require 'doorkeeper/orm/neo4j/concerns/scopes'
-require 'doorkeeper-neo4j/compatible'
+require_relative '../../../../lib/doorkeeper/neo4j/compatible'
 
 module Doorkeeper
   class AccessGrant

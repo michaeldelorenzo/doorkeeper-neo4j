@@ -1,5 +1,6 @@
 require 'neo4j'
 require 'doorkeeper/orm/neo4j/concerns/scopes'
+require 'doorkeeper/orm/neo4j/concerns/access_grant_mixin'
 require_relative '../../../../lib/doorkeeper/neo4j/compatible'
 
 module Doorkeeper

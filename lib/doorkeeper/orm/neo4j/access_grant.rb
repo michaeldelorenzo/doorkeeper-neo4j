@@ -19,6 +19,8 @@ module Doorkeeper
     property :redirect_uri,      type: String
     property :revoked_at,        type: DateTime
 
+    has_one :in, :access_grant, rel_class: 'Doorkeeper::Relationships::AccessGrantRel'
+
     validates :token,         uniqueness: true
   end
 end

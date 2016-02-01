@@ -1,3 +1,4 @@
+require 'neo4j'
 require 'doorkeeper/orm/neo4j/concerns/scopes'
 require_relative '../../../../lib/doorkeeper/neo4j/compatible'
 
@@ -5,8 +6,8 @@ module Doorkeeper
   class AccessToken
     include DoorkeeperNeo4j::Compatible
 
-    include Neo4j::ActiveNode
-    include Neo4j::Timestamps
+    include ::Neo4j::ActiveNode
+    include ::Neo4j::Timestamps
 
     include AccessTokenMixin
     include Models::Neo4j::Scopes

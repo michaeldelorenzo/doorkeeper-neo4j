@@ -5,10 +5,11 @@ module Doorkeeper
     include ::Neo4j::ActiveNode
     include ::Neo4j::Timestamps
 
-    # TODO: What to do with this?
     include Models::Neo4j::Scopes
 
-    include ApplicationMixin
+    # include ApplicationMixin
+
+    before_validation :generate_uid, :generate_secret, on: :create
 
     self.mapped_label_name = 'OAuthApplication'
 
@@ -19,6 +20,16 @@ module Doorkeeper
     # has_many :out, :authorized_tokens, rel_class: 'Doorkeeper::Relationships::AccessTokenRel'
     has_many :out, :access_tokens, rel_class: 'Doorkeeper::Relationships::AccessTokenRel'
     has_many :out, :access_grants, rel_class: 'Doorkeeper::Relationships::AccessGrantRel'
+
+    validates :name, :secret, :uid, presence: true
+    validates :uid, uniqueness: true
+    validates :redirect_uri, redirect_uri: true
+
+    before_validation :generate_uid, :generate_secret, on: :create
+
+    if respond_to?(:attr_accessible)
+      attr_accessible :name, :redirect_uri, :scopes
+    end
 
     def self.authorized_for(resource_owner)
       ids = AccessToken.where(resource_owner_id: resource_owner.id, revoked_at: nil).map(&:application_id)
@@ -33,5 +44,22 @@ module Doorkeeper
       self.uuid = val
     end
 
+    private
+
+    def has_scopes?
+      Doorkeeper.configuration.orm != :active_record || Application.new.attributes.include?("_scopes")
+    end
+
+    def generate_uid
+      if uid.blank?
+        self.uid = UniqueToken.generate
+      end
+    end
+
+    def generate_secret
+      if secret.blank?
+        self.secret = UniqueToken.generate
+      end
+    end
   end
 end

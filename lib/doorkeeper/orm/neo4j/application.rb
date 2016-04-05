@@ -10,8 +10,6 @@ module Doorkeeper
 
     before_validation :generate_secret, on: :create
 
-    self.mapped_label_name = 'OAuthApplication'
-
     property :name,         type: String
     property :secret,       type: String
     property :redirect_uri, type: String

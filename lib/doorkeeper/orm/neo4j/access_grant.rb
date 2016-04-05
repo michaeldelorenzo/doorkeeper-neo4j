@@ -13,8 +13,6 @@ module Doorkeeper
     include Doorkeeper::Neo4j::AccessGrantMixin
     include Models::Neo4j::Scopes
 
-    self.mapped_label_name = 'OAuthAccessGrant'
-
     property :resource_owner_id, type: String
     property :token,             type: String, index: :exact
     property :expires_in,        type: Integer

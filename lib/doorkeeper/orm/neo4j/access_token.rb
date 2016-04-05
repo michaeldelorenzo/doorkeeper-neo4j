@@ -13,8 +13,6 @@ module Doorkeeper
     include Doorkeeper::Neo4j::AccessTokenMixin
     include Models::Neo4j::Scopes
 
-    self.mapped_label_name = 'OAuthAccessToken'
-
     property :resource_owner_id, type: String
     property :token,             type: String, index: :exact
     property :refresh_token,     type: String

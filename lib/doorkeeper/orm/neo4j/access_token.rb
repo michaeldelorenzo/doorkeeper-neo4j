@@ -19,8 +19,6 @@ module Doorkeeper
     property :expires_in,        type: Integer
     property :revoked_at,        type: DateTime
 
-    has_one :in, :application, rel_class: 'Doorkeeper::Relationships::AccessTokenRel'
-
     validates :token,         uniqueness: true
     validates :refresh_token, uniqueness: { allow_nil: true }
 

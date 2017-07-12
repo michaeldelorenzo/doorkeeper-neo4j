@@ -14,7 +14,7 @@ module Doorkeeper
     include Models::Neo4j::Scopes
 
     property :resource_owner_id, type: String
-    property :token,             type: String, index: :exact
+    property :token,             type: String
     property :refresh_token,     type: String
     property :expires_in,        type: Integer
     property :revoked_at,        type: DateTime
